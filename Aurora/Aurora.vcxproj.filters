@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Aurora">
+      <UniqueIdentifier>{0FF303A8-FB94-2E7E-E44F-42D2D090B5CE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Aurora.h" />
+    <ClInclude Include="src\Aurora\Application.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Core.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\EntryPoint.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Log.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Aurora\Application.cpp">
+      <Filter>Aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\Log.cpp">
+      <Filter>Aurora</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

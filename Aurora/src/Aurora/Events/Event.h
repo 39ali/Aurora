@@ -1,7 +1,5 @@
 #pragma once
 #include "Aurora/Core.h"
-#include <string>
-#include <functional>
 #include "spdlog\fmt\bundled\ostream.h"
 namespace Aurora {
 
@@ -9,7 +7,7 @@ namespace Aurora {
 	{
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-		keyPressed, KeyReleased,
+		KeyPressed, KeyReleased,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved,
 		MouseScrolled,
 
@@ -36,8 +34,8 @@ namespace Aurora {
 	
 			return GetCategoryFlag()& cat;
 		}
-	protected:
 		bool m_Handled = false; // handled by layer or not
+	protected:
 
 	};
 

@@ -11,6 +11,12 @@
 #endif
 
 
+#ifdef  AUR_ENABLE_ASSERT
+	#define AUR_ASSERT(x, ...) {if(!(x)){AUR_ERROR("ASSERTION FAILED : {0} ! " , __VA_ARGS__); __debugbreak();  }}
+#else 
+	#define AUR_ASSERT(x, ...)
+#endif //  AUR_ENABLE_ASSERT
+
 
 /// 2^n
 #define BIT(x) (1<<x)

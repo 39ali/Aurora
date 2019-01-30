@@ -1,6 +1,6 @@
 #pragma once
-#include <sstream>
 #include "Event.h"
+#include "aurpch.h"
 namespace Aurora {
 class AUR_API KeyEvent : public Event {
  public:

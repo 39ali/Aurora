@@ -8,6 +8,11 @@ workspace "Aurora"
 
 outdir="%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir={}
+IncludeDir["GLFW"]= "Aurora/vendor/GLFW/include"
+
+include "Aurora/vendor/GLFW"
+
 project "Aurora"
 	location "Aurora"
 	kind "SharedLib"
@@ -22,8 +27,16 @@ project "Aurora"
 
 	includedirs {
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
+
+	links{
+	"GLFW",
+	"opengl32.lib"
+	}
+	pchheader "aurpch.h"
+	pchsource ("Aurora/src/aurpch.cpp")
 
 	filter "system:windows"
 		cppdialect "c++17"
@@ -52,6 +65,12 @@ project "Aurora"
 			defines "AUR_DIST"
 			optimize "On"
 	
+	filter{"system:windows", "configurations:Release","configurations:Debug"}
+		
+			defines
+			{
+				"AUR_ENABLE_ASSERT"
+			}	
 	--[[
 	filter{"system:windows", "configurations:Release"}
 		buildoptions "/MT" --]]

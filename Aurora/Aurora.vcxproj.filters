@@ -10,31 +10,35 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Aurora.h" />
-    <ClInclude Include="src\Aurora\Application.h">
-      <Filter>Aurora</Filter>
-    </ClInclude>
     <ClInclude Include="src\Aurora\Core.h">
       <Filter>Aurora</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\EntryPoint.h">
-      <Filter>Aurora</Filter>
+    <ClInclude Include="src\Aurora\Events\AppEvent.h">
+      <Filter>Aurora\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Events\Event.h">
+      <Filter>Aurora\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Events\KeyEvent.h">
+      <Filter>Aurora\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Events\MouseEvent.h">
       <Filter>Aurora\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Log.h">
       <Filter>Aurora</Filter>
     </ClInclude>
-    <ClInclude Include="src\Aurora\Events\AppEvent.h" />
-    <ClInclude Include="src\Aurora\Events\KeyEvent.h" />
-    <ClInclude Include="src\Aurora\Events\MouseEvent.h" />
+    <ClInclude Include="src\aurpch.h" />
+    <ClInclude Include="src\Aurora\Application.h" />
+    <ClInclude Include="src\Aurora\Window.h" />
+    <ClInclude Include="src\Aurora\Platform\Windows\WinWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Aurora\Application.cpp">
-      <Filter>Aurora</Filter>
-    </ClCompile>
     <ClCompile Include="src\Aurora\Log.cpp">
       <Filter>Aurora</Filter>
     </ClCompile>
+    <ClCompile Include="src\aurpch.cpp" />
+    <ClCompile Include="src\Aurora\Application.cpp" />
+    <ClCompile Include="src\Aurora\Platform\Windows\WinWindow.cpp" />
   </ItemGroup>
 </Project>

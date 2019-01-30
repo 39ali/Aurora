@@ -32,6 +32,9 @@ namespace Aurora {
 #define AUR_WARN(...) ::Aurora::Log::GetCLientLogger()->warn(__VA_ARGS__)
 #define AUR_INFO(...) ::Aurora::Log::GetCLientLogger()->info(__VA_ARGS__)
 #define AUR_TRACE(...)	::Aurora::Log::GetCLientLogger()->trace(__VA_ARGS__)
+
+
+
 //trace - gray 
 //info  -green
 //warn - yellow

@@ -10,8 +10,10 @@ outdir="%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir={}
 IncludeDir["GLFW"]= "Aurora/vendor/GLFW/include"
+IncludeDir["GLAD"]= "Aurora/vendor/GLAD/include"
 
 include "Aurora/vendor/GLFW"
+include "Aurora/vendor/GLAD"
 
 project "Aurora"
 	location "Aurora"
@@ -30,12 +32,14 @@ project "Aurora"
 	includedirs {
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
 	}
 
 	links{
 	"GLFW",
-	"opengl32.lib"
+	"opengl32.lib",
+	"GLAD"
 	}
 	pchheader "aurpch.h"
 	pchsource ("Aurora/src/aurpch.cpp")
@@ -47,7 +51,8 @@ project "Aurora"
 		defines
 		{
 				"AUR_PLATFORM_WINDOWS",
-				"AUR_BUILD_DLL"
+				"AUR_BUILD_DLL",
+				"GLFW_INCLUDE_NONE"
 		}
 		postbuildcommands
 		{

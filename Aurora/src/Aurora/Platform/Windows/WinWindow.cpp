@@ -4,6 +4,7 @@
 #include "Aurora\Events\KeyEvent.h"
 #include "Aurora\Events\MouseEvent.h"
 #include "Aurora\Log.h"
+#include "glad\glad.h"
 
 namespace Aurora {
 
@@ -33,6 +34,10 @@ void WinWindow::Init(const WindowProps& props) {
   m_Window = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(),
                               nullptr, nullptr);
   glfwMakeContextCurrent(m_Window);
+
+  int stat = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+  AUR_ASSERT(stat, "failed to load GLAD!");
+
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
 

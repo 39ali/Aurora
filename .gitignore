@@ -1,4 +1,5 @@
 .vs/
-bin/
-bin-init/
+/bin/
+/bin-init/
 Aurora/vendor/GLAD/bin-int/
+Aurora/vendor/GLAD/bin/

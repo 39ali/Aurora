@@ -17,6 +17,8 @@ project "Aurora"
 	location "Aurora"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
+
 	targetdir ("bin/" .. outdir .. "/%{prj.name}")
 	objdir ("bin-init/" .. outdir .. "/%{prj.name}")
 
@@ -39,8 +41,7 @@ project "Aurora"
 	pchsource ("Aurora/src/aurpch.cpp")
 
 	filter "system:windows"
-		cppdialect "c++17"
-		staticruntime "On"
+		cppdialect "c++17"	
 		systemversion "latest"
 	
 		defines
@@ -52,19 +53,22 @@ project "Aurora"
 		{
 		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outdir .. "/SandBox")	
 		}
-
+		
 	filter "configurations:Debug"
 			defines "AUR_DEBUG"
 			symbols "On"
+			runtime "Debug"
 
 	filter "configurations:Release"
 			defines "AUR_RELEASE"
 			optimize "On"
-	
+			runtime "Release"
+			 
 	filter "configurations:Dist"
 			defines "AUR_DIST"
 			optimize "On"
-	
+			runtime "Release"
+
 	filter{"system:windows", "configurations:Release","configurations:Debug"}
 		
 			defines
@@ -80,6 +84,8 @@ project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
+
 	targetdir ("bin/" .. outdir .. "/%{prj.name}")
 	objdir ("bin-init/" .. outdir .. "/%{prj.name}")
 	
@@ -99,7 +105,6 @@ project "SandBox"
 
 	filter "system:windows"
 		cppdialect "c++17"
-		staticruntime "On"
 		systemversion "latest"
 	
 		defines
@@ -111,11 +116,15 @@ project "SandBox"
 	filter "configurations:Debug"
 			defines "AUR_DEBUG"
 			symbols "On"
+			runtime "Debug"
+
 
 	filter "configurations:Release"
 			defines "AUR_RELEASE"
 			optimize "On"
+			runtime "Release"
 	
 	filter "configurations:Dist"
 			defines "AUR_DIST"
 			optimize "On"
+			runtime "Release"

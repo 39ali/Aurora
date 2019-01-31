@@ -7,10 +7,22 @@
     <Filter Include="Aurora\Events">
       <UniqueIdentifier>{13B80547-7F78-817D-48B3-CAFAB432C659}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Aurora\Platform">
+      <UniqueIdentifier>{4310723B-AF9B-DFFF-B8AC-62F424B73B00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Aurora\Platform\Windows">
+      <UniqueIdentifier>{7D4D2157-E984-69EE-F28E-CD115E4590E7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Aurora.h" />
+    <ClInclude Include="src\Aurora\Application.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Core.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\EntryPoint.h">
       <Filter>Aurora</Filter>
     </ClInclude>
     <ClInclude Include="src\Aurora\Events\AppEvent.h">
@@ -25,20 +37,36 @@
     <ClInclude Include="src\Aurora\Events\MouseEvent.h">
       <Filter>Aurora\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Layer.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\LayerStack.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Log.h">
       <Filter>Aurora</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Platform\Windows\WinWindow.h">
+      <Filter>Aurora\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Aurora\Window.h">
+      <Filter>Aurora</Filter>
+    </ClInclude>
     <ClInclude Include="src\aurpch.h" />
-    <ClInclude Include="src\Aurora\Application.h" />
-    <ClInclude Include="src\Aurora\Window.h" />
-    <ClInclude Include="src\Aurora\Platform\Windows\WinWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Aurora\Application.cpp">
+      <Filter>Aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\LayerStack.cpp">
+      <Filter>Aurora</Filter>
+    </ClCompile>
     <ClCompile Include="src\Aurora\Log.cpp">
       <Filter>Aurora</Filter>
     </ClCompile>
+    <ClCompile Include="src\Aurora\Platform\Windows\WinWindow.cpp">
+      <Filter>Aurora\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\aurpch.cpp" />
-    <ClCompile Include="src\Aurora\Application.cpp" />
-    <ClCompile Include="src\Aurora\Platform\Windows\WinWindow.cpp" />
   </ItemGroup>
 </Project>

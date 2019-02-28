@@ -7,8 +7,14 @@
     <Filter Include="Aurora\Events">
       <UniqueIdentifier>{13B80547-7F78-817D-48B3-CAFAB432C659}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Aurora\ImGui">
+      <UniqueIdentifier>{7937A0DB-659A-2F80-0E20-6836FA61FB02}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Aurora\Platform">
       <UniqueIdentifier>{4310723B-AF9B-DFFF-B8AC-62F424B73B00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Aurora\Platform\OpenGL">
+      <UniqueIdentifier>{1770177C-036A-40CE-ECD6-D6DED86FA63A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Aurora\Platform\Windows">
       <UniqueIdentifier>{7D4D2157-E984-69EE-F28E-CD115E4590E7}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Aurora\Events\MouseEvent.h">
       <Filter>Aurora\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\ImGui\ImGuiLayer.h">
+      <Filter>Aurora\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Layer.h">
       <Filter>Aurora</Filter>
     </ClInclude>
@@ -46,6 +55,9 @@
     <ClInclude Include="src\Aurora\Log.h">
       <Filter>Aurora</Filter>
     </ClInclude>
+    <ClInclude Include="src\Aurora\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Aurora\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Aurora\Platform\Windows\WinWindow.h">
       <Filter>Aurora\Platform\Windows</Filter>
     </ClInclude>
@@ -53,10 +65,17 @@
       <Filter>Aurora</Filter>
     </ClInclude>
     <ClInclude Include="src\aurpch.h" />
+    <ClInclude Include="src\Aurora\Input.h" />
+    <ClInclude Include="src\Aurora\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Aurora\KeyCodes.h" />
+    <ClInclude Include="src\Aurora\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aurora\Application.cpp">
       <Filter>Aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Aurora\ImGui\ImGuiLayer.cpp">
+      <Filter>Aurora\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Aurora\LayerStack.cpp">
       <Filter>Aurora</Filter>
@@ -64,9 +83,13 @@
     <ClCompile Include="src\Aurora\Log.cpp">
       <Filter>Aurora</Filter>
     </ClCompile>
+    <ClCompile Include="src\Aurora\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Aurora\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Aurora\Platform\Windows\WinWindow.cpp">
       <Filter>Aurora\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\aurpch.cpp" />
+    <ClCompile Include="src\Aurora\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

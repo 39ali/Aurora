@@ -7,7 +7,7 @@ namespace Aurora {
 	{
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased,KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved,
 		MouseScrolled,
 
@@ -34,7 +34,7 @@ namespace Aurora {
 	
 			return GetCategoryFlag()& cat;
 		}
-		bool m_Handled = false; // handled by layer or not
+		bool m_Handled = false; // handled by a layer or not
 	protected:
 
 	};

@@ -23,6 +23,11 @@ namespace Aurora {
 }
 
 
+//trace - gray 
+//info  -green
+//warn - yellow
+// error -red  
+
 #define AUR_CORE_ERROR(...) ::Aurora::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define AUR_CORE_WARN(...) ::Aurora::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define AUR_CORE_INFO(...) ::Aurora::Log::GetCoreLogger()->info(__VA_ARGS__)
@@ -34,8 +39,3 @@ namespace Aurora {
 #define AUR_TRACE(...)	::Aurora::Log::GetCLientLogger()->trace(__VA_ARGS__)
 
 
-
-//trace - gray 
-//info  -green
-//warn - yellow
-// error -red  

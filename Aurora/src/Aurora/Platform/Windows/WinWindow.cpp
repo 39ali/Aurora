@@ -97,7 +97,13 @@ void WinWindow::Init(const WindowProps& props) {
           }
         }
       });
+ 
+  glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character) {
+	  WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+	  KeyTypedEvent e(character);
+	  data.EventCallback(e);
 
+  });
 
   glfwSetCursorPosCallback(m_Window,[](GLFWwindow* window , double xpos, double ypos) 
   {

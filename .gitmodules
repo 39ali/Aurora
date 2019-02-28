@@ -4,3 +4,6 @@
 [submodule "Aurora/vendor/GLFW"]
 	path = Aurora/vendor/GLFW
 	url = git@github.com:alimilhim/glfw.git
+[submodule "Aurora/vendor/imgui"]
+	path = Aurora/vendor/imgui
+	url = git@github.com:alimilhim/imgui.git

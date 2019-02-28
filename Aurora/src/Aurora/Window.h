@@ -21,6 +21,8 @@ namespace Aurora {
 		virtual void SetVSync(bool e) = 0;
 		virtual bool IsVSync()const = 0;
 		
+		virtual void* GetNativeWindow() const = 0;
+
 		using EventCallbackFn = std::function<void(Event&)>;
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		static Window* Create(const WindowProps& props = WindowProps());

@@ -7,10 +7,17 @@ public :
 	LayerXP():Layer("layerxp"){}
 	
 	void OnUpdate() override {
-		AUR_INFO("update layerxp");
+		
+		if (Aurora::Input::IsKeyPressed(AUR_KEY_TAB))
+			AUR_INFO("tab key was lit");
+
 	}
 	void OnEvent(Aurora::Event& e)override {
-		AUR_INFO("{0} ",e.ToString());
+		if (e.GetEventType() == Aurora::EventType::KeyPressed)
+		{
+			Aurora::keyPressedEvent& ee = (Aurora::keyPressedEvent&)e;
+			AUR_TRACE("{0}", (char)ee.GetKeyCode());
+		}
 	}
 
 };
@@ -21,6 +28,7 @@ public:
 	SandBox()
 	{
 		PushLayer(new LayerXP());
+		PushLayer(new Aurora::ImGuiLayer());
 	};
 
 	~SandBox()

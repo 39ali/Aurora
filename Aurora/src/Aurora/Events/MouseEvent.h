@@ -2,7 +2,7 @@
 #include "Event.h"
 #include "aurpch.h"
 namespace Aurora {
-	class AUR_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y) :
@@ -21,7 +21,7 @@ namespace Aurora {
 
 	};
 
-	class AUR_API  MouseButtonEvent : public Event {
+	class  MouseButtonEvent : public Event {
 	public:
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse)
 		inline int GetMouseButton()const { return m_Button; }
@@ -33,7 +33,7 @@ namespace Aurora {
 	
 	};
 
-	class AUR_API MouseButtonPressedEvent :public MouseButtonEvent {
+	class MouseButtonPressedEvent :public MouseButtonEvent {
 	public:
 		MouseButtonPressedEvent(int button) :MouseButtonEvent(button) {}
 		EVENT_CLASS_TYPE(MouseButtonPressed)
@@ -46,7 +46,7 @@ namespace Aurora {
 
 	};
 
-	class AUR_API MouseButtonReleasedEvent :public MouseButtonEvent {
+	class MouseButtonReleasedEvent :public MouseButtonEvent {
 	public:
 		MouseButtonReleasedEvent(int button) :MouseButtonEvent(button) {}
 		EVENT_CLASS_TYPE(MouseButtonReleased)
@@ -59,7 +59,7 @@ namespace Aurora {
 
 	};
 
-	class AUR_API MouseScrolledEvent : public Event {
+	class MouseScrolledEvent : public Event {
 	public:
 		MouseScrolledEvent(float xoffset, float yoffset) :
 			m_Xoffset(xoffset), m_Yoffset(yoffset) {}

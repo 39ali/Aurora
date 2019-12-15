@@ -3,7 +3,7 @@
 #include "Event.h"
 namespace Aurora {
 
-class AUR_API WindowResizeEvent : public Event {
+class WindowResizeEvent : public Event {
  public:
   WindowResizeEvent(unsigned int width, unsigned int height)
       : m_width(width), m_height(height){};
@@ -22,14 +22,14 @@ class AUR_API WindowResizeEvent : public Event {
   unsigned int m_width, m_height;
 };
 
-class AUR_API WindowCloseEvent : public Event {
+class WindowCloseEvent : public Event {
  public:
   WindowCloseEvent() {}
   EVENT_CLASS_CATEGORY(EventCategoryApplication)
   EVENT_CLASS_TYPE(WindowClose)
 };
 
-class AUR_API AppTickEvent : public Event {
+class AppTickEvent : public Event {
  public:
   AppTickEvent() {}
 
@@ -37,7 +37,7 @@ class AUR_API AppTickEvent : public Event {
   EVENT_CLASS_CATEGORY(EventCategoryApplication)
 };
 
-class AUR_API AppUpdateEvent : public Event {
+class AppUpdateEvent : public Event {
  public:
   AppUpdateEvent() {}
 
@@ -45,7 +45,7 @@ class AUR_API AppUpdateEvent : public Event {
   EVENT_CLASS_CATEGORY(EventCategoryApplication)
 };
 
-class AUR_API AppRenderEvent : public Event {
+class AppRenderEvent : public Event {
  public:
   AppRenderEvent() {}
 

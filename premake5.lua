@@ -4,7 +4,7 @@ workspace "Aurora"
 	configurations{
 		"Debug","Release","Dist"
 		}
-
+	
 
 outdir="%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -19,9 +19,11 @@ include "Aurora/vendor/imgui"
 
 project "Aurora"
 	location "Aurora"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "c++17"	
+	staticruntime "on"
+	
 
 	targetdir ("bin/" .. outdir .. "/%{prj.name}")
 	objdir ("bin-init/" .. outdir .. "/%{prj.name}")
@@ -46,8 +48,8 @@ project "Aurora"
 	"GLAD",
 	"ImGui"
 	}
-	pchheader "aurpch.h"
-	pchsource ("Aurora/src/aurpch.cpp")
+	--pchheader "aurpch.h"
+	--pchsource ("Aurora/src/aurpch.cpp")
 
 	filter "system:windows"
 		cppdialect "c++17"	
@@ -59,42 +61,54 @@ project "Aurora"
 				"AUR_BUILD_DLL",
 				"GLFW_INCLUDE_NONE"
 		}
-		postbuildcommands
+	
+	
+	filter "system:macosx"
+		defines
 		{
-		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outdir .. "/SandBox")	
+				"AUR_PLATFORM_MACOS",
+				"GLFW_INCLUDE_NONE"
 		}
-		
+		links {"OpenGL.framework","Cocoa.framework","IOKit.framework","CoreFoundation.framework","CoreVideo.framework"}
+		buildoptions { "-F ~/MacOSX-SDKs/MacOSX10.15.sdk/System/Library/Frameworks"}
+        linkoptions { "-F ~/MacOSX-SDKs/MacOSX10.15.sdk/System/Library/Frameworks"}
+	
+
 	filter "configurations:Debug"
 			defines "AUR_DEBUG"
-			symbols "On"
+			symbols "on"
 			runtime "Debug"
 
 	filter "configurations:Release"
 			defines "AUR_RELEASE"
-			optimize "On"
+			optimize "on"
 			runtime "Release"
 			 
 	filter "configurations:Dist"
 			defines "AUR_DIST"
-			optimize "On"
+			optimize "on"
 			runtime "Release"
 
 	filter{"system:windows", "configurations:Release","configurations:Debug"}
-		
+
 			defines
 			{
-				"AUR_ENABLE_ASSERT"
+				"AUR_ENABLE_ASSERT_WINDOWS"
 			}	
-	--[[
-	filter{"system:windows", "configurations:Release"}
-		buildoptions "/MT" --]]
+
+	filter{"system:macos", "configurations:Release","configurations:Debug"}
+			defines
+			{
+			"AUR_ENABLE_ASSERT_MACOS"
+			}
 
 
 project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "c++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outdir .. "/%{prj.name}")
 	objdir ("bin-init/" .. outdir .. "/%{prj.name}")
@@ -111,30 +125,37 @@ project "SandBox"
 
 	links {
 		"Aurora"
-	}
+	}	
 
 	filter "system:windows"
-		cppdialect "c++17"
 		systemversion "latest"
 	
 		defines
 		{
 				"AUR_PLATFORM_WINDOWS"	
 		}
-		
 
+	filter "system:macosx"
+		defines
+		{
+			"AUR_PLATFORM_MACOS"
+		}	
+		links {"OpenGL.framework","Cocoa.framework","IOKit.framework","CoreFoundation.framework","CoreVideo.framework"}
+		buildoptions { "-F ~/MacOSX-SDKs/MacOSX10.15.sdk/System/Library/Frameworks"}
+        linkoptions { "-F ~/MacOSX-SDKs/MacOSX10.15.sdk/System/Library/Frameworks"}
+	
 	filter "configurations:Debug"
 			defines "AUR_DEBUG"
-			symbols "On"
+			symbols "on"
 			runtime "Debug"
 
 
 	filter "configurations:Release"
 			defines "AUR_RELEASE"
-			optimize "On"
+			optimize "on"
 			runtime "Release"
 	
 	filter "configurations:Dist"
 			defines "AUR_DIST"
-			optimize "On"
+			optimize "on"
 			runtime "Release"

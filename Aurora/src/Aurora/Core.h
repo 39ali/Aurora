@@ -1,20 +1,24 @@
 #pragma once
 
-#ifdef AUR_PLATFORM_WINDOWS
-	#ifdef AUR_BUILD_DLL
-		#define AUR_API __declspec(dllexport)
+#ifdef AUR_PLATFORM_WINDOWS 
+
+#else
+	#ifdef AUR_PLATFORM_MACOS
+
 	#else
-		#define AUR_API __declspec(dllimport)
+	 #error this only build for windows and macos
 	#endif
-#else 
-#error this only build for windows
 #endif
 
 
-#ifdef  AUR_ENABLE_ASSERT
+#ifdef  AUR_ENABLE_ASSERT_WINDOWS
 	#define AUR_ASSERT(x, ...) {if(!(x)){AUR_ERROR("ASSERTION FAILED : {0} ! " , __VA_ARGS__); __debugbreak();  }}
 #else 
+	#ifdef AUR_ENABLE_ASSERT_MACOS
+	#define AUR_ASSERT(x, ...) {if(!(x)){AUR_ERROR("ASSERTION FAILED : {0} ! " , __VA_ARGS__);  }}
+	#else
 	#define AUR_ASSERT(x, ...)
+	#endif
 #endif //  AUR_ENABLE_ASSERT
 
 

@@ -1,9 +1,9 @@
 #pragma once
-#include "Aurora\Core.h"
+#include "Aurora/Core.h"
 
 namespace Aurora {
 
-class AUR_API Input {
+class Input {
  public:
   inline static bool IsKeyPressed(int keycode) { return s_Instance->IsKeyPressedImpl(keycode); }
   inline static bool IsMouseButtonPressed(int button) { return s_Instance->IsMouseButtonImpl(button); }

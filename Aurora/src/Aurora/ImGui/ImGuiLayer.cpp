@@ -1,14 +1,14 @@
 #include "aurpch.h"
 #include "ImGuiLayer.h"
-#include "Aurora\Application.h"
-#include "Aurora\Platform\OpenGL\imgui_impl_opengl3.h"
+#include "Aurora/Application.h"
+#include "Aurora/Platform/OpenGL/imgui_impl_opengl3.h"
 
 
 #include "imgui.h"
 
 ///temp
-#include <glad\glad.h>
-#include "GLFW\glfw3.h"
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
 
 namespace Aurora {
 ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {}

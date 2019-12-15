@@ -1,6 +1,6 @@
 #pragma once
 #include "Application.h"
-#ifdef AUR_PLATFORM_WINDOWS
+//#ifdef AUR_PLATFORM_WINDOWS
 
 extern Aurora::Application* Aurora::CreateApplication();
 
@@ -16,4 +16,4 @@ int main(int argc, char** argv) {
   return 0;
 }
 
-#endif
+//#endif

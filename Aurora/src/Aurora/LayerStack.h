@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Aurora\Core.h"
+#include "Aurora/Core.h"
 #include "Layer.h"
 namespace Aurora {
 
-	class AUR_API LayerStack 
+	class LayerStack 
 	{
 	public :
 		LayerStack();

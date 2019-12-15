@@ -1,9 +1,9 @@
 #pragma once
 #include "Core.h"
-#include "Events\Event.h"
+#include "Events/Event.h"
 namespace Aurora {
 
-	class AUR_API Layer {
+	class Layer {
 	public:
 		Layer(const std::string& name = "Layer00") :
 			m_Name(name) {}

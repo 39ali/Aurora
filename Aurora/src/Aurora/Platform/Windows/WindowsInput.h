@@ -1,5 +1,5 @@
 #pragma once
-#include "Aurora\Input.h"
+#include "Aurora/Input.h"
 
 namespace Aurora {
 

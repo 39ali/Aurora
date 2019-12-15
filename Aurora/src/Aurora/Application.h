@@ -4,11 +4,11 @@
 #include "Aurora/Log.h"
 #include "Events/AppEvent.h"
 #include "Window.h"
-#include "Aurora\LayerStack.h"
+#include "Aurora/LayerStack.h"
 
 namespace Aurora {
 
-class AUR_API Application {
+class Application {
  public:
 	 Application();
   virtual ~Application();

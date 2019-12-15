@@ -2,7 +2,7 @@
 #include "Event.h"
 #include "aurpch.h"
 namespace Aurora {
-class AUR_API KeyEvent : public Event {
+class KeyEvent : public Event {
  public:
   inline int GetKeyCode() const { return m_keycode; }
   EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard)
@@ -11,7 +11,7 @@ class AUR_API KeyEvent : public Event {
   int m_keycode;
 };
 
-class AUR_API keyPressedEvent : public KeyEvent {
+class keyPressedEvent : public KeyEvent {
  public:
   keyPressedEvent(int keycode, int repeatcount)
       : KeyEvent(keycode), m_RepeatCount(repeatcount) {}
@@ -27,7 +27,7 @@ class AUR_API keyPressedEvent : public KeyEvent {
 };
 
 
-class AUR_API KeyReleasedEvent : public KeyEvent
+class KeyReleasedEvent : public KeyEvent
 {
 public:
 	KeyReleasedEvent(int keycode)
@@ -44,7 +44,7 @@ public:
 };
 
 
-class AUR_API KeyTypedEvent : public KeyEvent {
+class KeyTypedEvent : public KeyEvent {
 public:
 	KeyTypedEvent(int keycode)
 		: KeyEvent(keycode) {}

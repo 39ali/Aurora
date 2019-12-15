@@ -1,8 +1,8 @@
 #include "aurpch.h"
 #include "WindowsInput.h"
 
-#include "Aurora\Application.h"
-#include "GLFW\glfw3.h"
+#include "Aurora/Application.h"
+#include "GLFW/glfw3.h"
 
 namespace Aurora {
 

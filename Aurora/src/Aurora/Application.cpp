@@ -1,8 +1,7 @@
-#pragma once 
 #include "aurpch.h"
 #include "Application.h"
-#include "glad\glad.h"
-#include "Aurora\Input.h"
+#include "glad/glad.h"
+#include "Aurora/Input.h"
 namespace Aurora {
 #define BIND_EVENT_FN(fn) std::bind(&Application::fn, this, std::placeholders::_1) 
 
@@ -15,7 +14,8 @@ namespace Aurora {
 		
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
-
+   
+        
 		unsigned int i;
 		glGenVertexArrays(1, &i);
 	}

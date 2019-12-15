@@ -1,9 +1,8 @@
 #pragma once
-
-#include "Aurora\Core.h"
-#include "spdlog\spdlog.h"
+#include "Aurora/Core.h"
+#include "spdlog/spdlog.h"
 namespace Aurora {
-	class AUR_API Log
+	class Log
 	{
 	public:
 		Log();

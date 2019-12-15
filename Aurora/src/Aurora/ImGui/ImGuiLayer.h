@@ -1,11 +1,11 @@
 #pragma once
-#include "Aurora\Layer.h"
-#include "Aurora\Events\AppEvent.h"
-#include "Aurora\Events\KeyEvent.h"
-#include "Aurora\Events\MouseEvent.h"
+#include "Aurora/Layer.h"
+#include "Aurora/Events/AppEvent.h"
+#include "Aurora/Events/KeyEvent.h"
+#include "Aurora/Events/MouseEvent.h"
 namespace Aurora {
 
-class AUR_API ImGuiLayer : public Layer {
+class ImGuiLayer : public Layer {
  public:
   ImGuiLayer();
   ~ImGuiLayer();

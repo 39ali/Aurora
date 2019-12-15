@@ -1,6 +1,6 @@
 #pragma once
 #include "Aurora/Core.h"
-#include "spdlog\fmt\bundled\ostream.h"
+#include "spdlog/fmt/bundled/ostream.h"
 namespace Aurora {
 
 	enum class EventType
@@ -23,7 +23,7 @@ namespace Aurora {
 		EventCategoryMouseButton = BIT(4)
 	};
 
-	class AUR_API Event
+	class Event
 	{
 	public:
 		virtual EventType GetEventType() const = 0;
@@ -40,7 +40,7 @@ namespace Aurora {
 	};
 
 #define EVENT_CLASS_CATEGORY(c) virtual int GetCategoryFlag() const override {return c;}
-#define EVENT_CLASS_TYPE(t) static EventType GetStaticType(){return EventType::##t;}\
+#define EVENT_CLASS_TYPE(t) static EventType GetStaticType(){return EventType::t;}\
 															virtual EventType GetEventType()const override{return GetStaticType();}\
 															virtual const char* GetEventName() const override {return #t;}
 

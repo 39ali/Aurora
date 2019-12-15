@@ -1,10 +1,10 @@
 #include "aurpch.h"
 #include "WinWindow.h"
-#include "Aurora\Events\AppEvent.h"
-#include "Aurora\Events\KeyEvent.h"
-#include "Aurora\Events\MouseEvent.h"
-#include "Aurora\Log.h"
-#include "glad\glad.h"
+#include "Aurora/Events/AppEvent.h"
+#include "Aurora/Events/KeyEvent.h"
+#include "Aurora/Events/MouseEvent.h"
+#include "Aurora/Log.h"
+#include "glad/glad.h"
 
 namespace Aurora {
 
@@ -30,14 +30,20 @@ void WinWindow::Init(const WindowProps& props) {
 
     s_GLFWInit = true;
   }
-
-  m_Window = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(),
+    /// we need this for macos to work
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    m_Window = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(),
                               nullptr, nullptr);
   glfwMakeContextCurrent(m_Window);
 
   int stat = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
   AUR_ASSERT(stat, "failed to load GLAD!");
-
+  
+  printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
+  
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
 

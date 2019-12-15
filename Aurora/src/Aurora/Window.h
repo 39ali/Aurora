@@ -1,7 +1,7 @@
 #pragma once
-#include "Aurora\Core.h"
+#include "Aurora/Core.h"
 #include "aurpch.h"
-#include "Events\Event.h"
+#include "Events/Event.h"
 namespace Aurora {
 
 	struct WindowProps {
@@ -11,7 +11,7 @@ namespace Aurora {
 		width = 1280,unsigned int height=720):Title(title),Width(width),Height(height) {}
 
 	};
-	class AUR_API Window {
+	class Window {
 	public :
 	
 		virtual ~Window() {}
